@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.js";
 import dashboardRoutes from "./routes/dashboard.js";
 import searchRoutes from "./routes/search.js";
@@ -17,6 +18,7 @@ const port = 3000;
 // Middleware to parse form data and JSON
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
 
 // Serve static files from frontend's public folder
 app.use(express.static(path.join(__dirname, "../PixelSync-frontend/public")));
